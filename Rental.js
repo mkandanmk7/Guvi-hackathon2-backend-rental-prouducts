@@ -17,6 +17,7 @@ const port = "3001";
     //common mdw..
     server.use((req, res, next) => {
       console.log("common middleware triggered");
+      next();
     });
 
     server.use("/products", productsData);

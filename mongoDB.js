@@ -12,15 +12,19 @@ module.exports = {
   products: null,
 
   async connectDB() {
-    await client.connect(); //connect the DB
-    console.log("DB connected successfully ");
+    try {
+      await client.connect(); //connect the DB
+      console.log("DB connected successfully ");
 
-    //select the DB ;
+      //select the DB ;
 
-    this.db = client.db("rent_products");
-    console.log("DB Selected Successfully");
+      this.db = client.db("rent_products");
+      console.log("DB Selected Successfully");
 
-    //Select the Collections;
-    this.products = this.db.collection("prouducts");
+      //Select the Collections;
+      this.products = this.db.collection("products");
+    } catch (err) {
+      console.log("Error in DB connection", err);
+    }
   },
 };
