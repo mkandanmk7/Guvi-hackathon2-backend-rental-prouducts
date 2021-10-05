@@ -1,10 +1,11 @@
+require("dotenv").config(); // for env   bydefault:node have process()
 const express = require("express");
 const mongo = require("./mongoDB");
 const productsData = require("./Routes/Prouducts.routes");
 
 const server = express();
 
-const port = "3001";
+// const port = "3001";
 
 (async () => {
   try {
@@ -23,8 +24,8 @@ const port = "3001";
     server.use("/products", productsData);
 
     //start the server in given port
-    server.listen(port, () => {
-      console.log(`Server started successfully at ${port}`);
+    server.listen(process.env.port, () => {
+      console.log(`Server started successfully at ${process.env.port}`);
     });
   } catch (err) {
     console.log("Error is collected", err);

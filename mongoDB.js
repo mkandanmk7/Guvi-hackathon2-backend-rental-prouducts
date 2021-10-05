@@ -1,11 +1,11 @@
 const { MongoClient } = require("mongodb");
 
-const url =
-  "mongodb+srv://muthu:muthu123@cluster1.q9tm6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+//  ****  process.env handle this...****
+// const url ="mongodb+srv://muthu:muthu123@cluster1.q9tm6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+//   const dbName="rent_products";
 
 //create obj  ; param url to m-client's constructor;
-
-const client = new MongoClient(url);
+const client = new MongoClient(process.env.url);
 
 module.exports = {
   //initially empty;
@@ -19,7 +19,7 @@ module.exports = {
 
       //select the DB ;
 
-      this.db = client.db("rent_products");
+      this.db = client.db(process.env.dbName);
       console.log("DB Selected Successfully");
 
       //Select the Collections;
