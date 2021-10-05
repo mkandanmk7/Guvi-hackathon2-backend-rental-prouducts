@@ -1,6 +1,8 @@
 require("dotenv").config(); // for env   bydefault:node have process()
 const express = require("express");
 const mongo = require("./mongoDB");
+const cors = require("cors");
+
 const productsData = require("./Routes/Prouducts.routes");
 
 const server = express();
@@ -11,6 +13,9 @@ const server = express();
   try {
     //Connection call inside of iife ;
     await mongo.connectDB();
+
+    //  *** mdw to allow access our api to others
+    server.use(cors()); // limit => cors({origin:["netlify url"]})
 
     // give json format  to front end (parsing data)
     server.use(express.json());
