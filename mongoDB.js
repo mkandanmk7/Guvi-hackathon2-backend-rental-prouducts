@@ -1,6 +1,7 @@
 const { MongoClient } = require("mongodb");
 
-const url = "mongodb://localhost:27017";
+const url =
+  "mongodb+srv://muthu:muthu123@cluster1.q9tm6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 //create obj  ; param url to m-client's constructor;
 
