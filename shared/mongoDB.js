@@ -5,7 +5,7 @@ const { MongoClient } = require("mongodb");
 //   const dbName="rent_products";
 
 //create obj  ; param url to m-client's constructor;
-const client = new MongoClient(process.env.url);
+const client = new MongoClient(process.env.URL);
 
 module.exports = {
   //initially empty;
@@ -15,12 +15,12 @@ module.exports = {
   async connectDB() {
     try {
       await client.connect(); //connect the DB
-      console.log("DB connected successfully at ", process.env.url);
+      console.log("DB connected successfully at ", process.env.URL);
 
       //select the DB ;
 
-      this.db = client.db(process.env.dbName);
-      console.log("DB Selected Successfully", process.env.dbName);
+      this.db = client.db(process.env.DB_NAME);
+      console.log("DB Selected Successfully", process.env.DB_NAME);
 
       //Select the Collections;
       this.products = this.db.collection("products");

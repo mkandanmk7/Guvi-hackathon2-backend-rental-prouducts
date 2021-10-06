@@ -1,13 +1,13 @@
+const cors = require("cors");
 require("dotenv").config(); // for env   bydefault:node have process()
 const express = require("express");
 const mongo = require("./shared/mongoDB");
-const cors = require("cors");
 
 const productsData = require("./Routes/Prouducts.routes");
 
 const server = express();
 
-const port = process.env.port || "3001";
+const PORT = process.env.PORT || "3001";
 
 (async () => {
   try {
@@ -29,8 +29,8 @@ const port = process.env.port || "3001";
     server.use("/products", productsData);
 
     //start the server in given port
-    server.listen(process.env.port, () => {
-      console.log(`Server started successfully at ${process.env.port}`);
+    server.listen(process.env.PORT, () => {
+      console.log(`Server started successfully at ${process.env.PORT}`);
     });
   } catch (err) {
     console.log("Error is collected", err);
