@@ -1,13 +1,13 @@
 require("dotenv").config(); // for env   bydefault:node have process()
 const express = require("express");
-const mongo = require("./mongoDB");
+const mongo = require("./shared/mongoDB");
 const cors = require("cors");
 
 const productsData = require("./Routes/Prouducts.routes");
 
 const server = express();
 
-// const port = "3001";
+const port = process.env.port || "3001";
 
 (async () => {
   try {
@@ -22,7 +22,7 @@ const server = express();
 
     //common mdw..
     server.use((req, res, next) => {
-      console.log("common middleware triggered");
+      console.log(`${new Date()} - ${req.url} - ${req.method}`);
       next();
     });
 

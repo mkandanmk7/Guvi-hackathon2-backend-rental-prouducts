@@ -15,12 +15,12 @@ module.exports = {
   async connectDB() {
     try {
       await client.connect(); //connect the DB
-      console.log("DB connected successfully ");
+      console.log("DB connected successfully at ", process.env.url);
 
       //select the DB ;
 
       this.db = client.db(process.env.dbName);
-      console.log("DB Selected Successfully");
+      console.log("DB Selected Successfully", process.env.dbName);
 
       //Select the Collections;
       this.products = this.db.collection("products");

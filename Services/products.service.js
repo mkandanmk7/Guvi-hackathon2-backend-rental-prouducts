@@ -1,6 +1,6 @@
 const { ObjectId } = require("mongodb"); //driver
 
-const db = require("../mongoDB"); //selection db;
+const db = require("../shared/mongoDB"); //selection db;
 
 service = {
   async getData(req, res) {
